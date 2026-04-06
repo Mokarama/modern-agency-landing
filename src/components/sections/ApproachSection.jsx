@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import logo from "../../assets/images/logo-dark.png";
+import AppoLogo from "../../assets/images/approch-logo.png";
 import approImg from "../../assets/images/appro-img.webp";
 import winnerLogo from "../../assets/images/winner-logo.png";
 import winnerLogo2 from "../../assets/images/winer-logo2.png";
@@ -80,39 +80,61 @@ const ApproachSection = () => {
     <main className="bg-white">
 
       {/* ================= APPROACH SECTION ================= */}
-      <section className="px-5 md:px-10 py-16">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+     <section className="px-5 md:px-10 py-16 bg-[#f3f3f3]">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
-          {/* Left */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-start gap-6"
-          >
-            <div className="relative w-24 h-24 flex items-center justify-center">
-              <div className="absolute w-full h-full border border-gray-300 rounded-full" />
-              <img src={logo} alt="logo" className="w-10 h-10" />
-            </div>
+    {/* Left */}
+    <div className="flex flex-col items-start gap-6">
 
-            <p className="text-gray-500 text-[16px] leading-relaxed max-w-[320px]">
-              We design every project with long-term success in mind.
-            </p>
-          </motion.div>
+      <div className="relative w-24 h-24 flex items-center justify-center">
 
-          {/* Right */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h2 className="text-2xl md:text-5xl font-medium leading-snug text-[#0A0A0A]">
-              Our approach is straightforward—
-              prioritizing functionality, speed, and clarity for solutions.
-            </h2>
-          </motion.div>
-        </div>
-      </section>
+        {/* Rotating Text */}
+
+  {/* Circle Text */}
+  <motion.svg
+    viewBox="0 0 200 200"
+    className="absolute w-full h-full"
+    animate={{ rotate: 360 }}
+    transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+  >
+    <path
+      id="circle"
+      d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0"
+      fill="none"
+    />
+
+    <text fontSize="22" fill="#9ca3af">
+      <textPath href="#circle">
+        CREATIVE DESIGN STUDIO • CREATIVE DESIGN STUDIO •
+      </textPath>
+    </text>
+  </motion.svg>
+
+  {/* Logo */}
+  <img src={AppoLogo} alt="logo" className="w-10 h-10" />
+  
+      </div>
+
+      <p className="text-gray-500 text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed max-w-[320px]">
+        We design every project with long-term success in mind.
+      </p>
+
+    </div>
+
+    {/* Right */}
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <h2 className="text-[26px] sm:text-[34px] md:text-[42px] lg:text-[48px] font-medium leading-snug text-[#0A0A0A]">
+        Our approach is straightforward—
+        prioritizing functionality, speed, and clarity for solutions.
+      </h2>
+    </motion.div>
+
+  </div>
+</section>
 
       {/* ================= EXPERIENCE SECTION ================= */}
       <section className="px-5 md:px-10 py-16">
