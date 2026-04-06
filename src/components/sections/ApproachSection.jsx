@@ -36,33 +36,47 @@ function useCounter(end, duration = 1800) {
 }
 
 /* ---------------- PROGRESS BAR ---------------- */
-const ProgressBar = ({ label, value, highlight }) => {
-  return (
-    <div className="space-y-1">
-      <div className="flex justify-between text-sm text-gray-600">
-        <span>{label}</span>
-        <span>{value}%</span>
-      </div>
+const ProgressBar = ({ label, value, highlight }) => (
+  <div className="relative rounded-xl overflow-hidden">
+    
+    {/* Background track */}
+    <div className="absolute inset-0 bg-gray-100 rounded-xl" />
 
-      <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${value}%` }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className={`h-full rounded-full ${
-            highlight ? "bg-black" : "bg-gray-400"
-          }`}
-        />
-      </div>
+    {/* Progress fill */}
+    <div
+      className={`absolute inset-y-0 left-0 rounded-xl transition-all duration-700 ${
+        highlight ? "bg-black" : "bg-gray-200"
+      }`}
+      style={{ width: `${value}%` }}
+    />
+
+    {/* Text */}
+    <div className="relative flex justify-between items-center px-4 py-3">
+      <span
+        className={`text-sm font-semibold ${
+          highlight ? "text-white" : "text-gray-800"
+        }`}
+      >
+        {label}
+      </span>
+      <span
+        className={`text-sm font-bold ${
+          highlight ? "text-white" : "text-gray-500"
+        }`}
+      >
+        {value}%
+      </span>
     </div>
-  );
-};
+
+  </div>
+);
 
 /* ---------------- MAIN COMPONENT ---------------- */
 const ApproachSection = () => {
   const { count, ref } = useCounter(25);
 
   return (
+    <>
     <main className="bg-white">
 
       {/* ================= APPROACH SECTION ================= */}
@@ -186,52 +200,94 @@ const ApproachSection = () => {
           </motion.div>
 
           {/* RIGHT */}
-          <div className="flex flex-col gap-6 h-[450px] md:h-[500px]">
+             <div className="flex flex-col gap-6 h-[450px] md:h-[500px]">
 
-            {/* SOCIAL */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gray-100 rounded-2xl p-6"
+      {/* SOCIAL */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-gray-100 rounded-2xl p-6"
+      >
+        <h4 className="text-sm text-gray-400">Follow us</h4>
+        <h3 className="text-lg font-semibold mb-4">For check updates</h3>
+
+        <div className="flex flex-wrap gap-2">
+          {["Dribbble", "Behance", "LinkedIn", "X", "Xing"].map((item) => (
+            <button
+              key={item}
+              className="px-4 py-1.5 rounded-full border border-gray-300 text-sm font-medium tracking-wide hover:bg-black hover:text-white hover:border-black transition"
             >
-              <h4 className="text-sm text-gray-500">Follow us</h4>
-              <h3 className="text-lg font-semibold mb-4">
-                For check updates
-              </h3>
+              {item.toUpperCase()}
+            </button>
+          ))}
+        </div>
+      </motion.div>
 
-              <div className="flex flex-wrap gap-2">
-                {["Dribbble", "Behance", "LinkedIn", "X", "Xing"].map((item) => (
-                  <button
-                    key={item}
-                    className="px-4 py-1.5 rounded-full border text-sm hover:bg-black hover:text-white transition"
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
+      {/* IMPRESSIONS */}
+  {/* IMPRESSIONS */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-gray-100 rounded-2xl p-6 flex flex-col gap-3"
+      >
+        <p className="text-sm text-gray-400">Impressions</p>
 
-            {/* PROGRESS */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-gray-100 rounded-2xl p-6 space-y-4"
-            >
-              <h3 className="text-lg font-semibold">Impressions</h3>
+   
+        <div className="relative flex flex-col">
 
-              <ProgressBar label="Solutions" value={100} />
-              <ProgressBar label="UI/UX" value={90} highlight />
-              <ProgressBar label="Explore" value={72} />
-            </motion.div>
-
+          <div className="relative z-10">
+            <ProgressBar label="Explore" value={72} />
           </div>
+
+          <div className="relative z-20 -mt-2">
+            <ProgressBar label="UI/UX" value={90} highlight />
+          </div>
+
+          <div className="relative z-10 -mt-2">
+            <ProgressBar label="Solutions" value={100} />
+          </div>
+
+        </div>
+
+      </motion.div>
+
+    </div>
 
         </div>
       </section>
 
     </main>
+    {/* Scrolling Text */}
+
+<div
+  className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none"
+  style={{ background: "linear-gradient(90deg, #f5f5f5 0%, rgba(245,245,245,0) 100%)" }}
+/>
+
+{/* Right fade */}
+<motion.div
+  className="flex whitespace-nowrap"
+  animate={{ x: ["0%", "-50%"] }}
+  transition={{
+    duration: 12,
+    ease: "linear",
+    repeat: Infinity,
+  }}
+  style={{
+    maskImage: "linear-gradient(90deg, transparent 0%, black 20%, black 80%, transparent 100%)",
+    WebkitMaskImage: "linear-gradient(90deg, transparent 0%, black 20%, black 80%, transparent 100%)",
+  }}
+>
+  {[1, 2].map((_, i) => (
+    <span key={i} className="text-[70px]  text-black mx-8">
+    Our team combines creativity, technology Our team combines creativity, technology Our team combines creativity, technology Our team combines creativity, technology 
+    </span>
+  ))}
+</motion.div>
+
+</>
   );
 };
 
