@@ -21,7 +21,7 @@ export default function AboutAwards() {
   return (
     <section className="bg-[#f0eeea] min-h-screen px-6 md:px-16 py-14">
 
-      {/* Trophy Badge */}
+     
       <div className="flex justify-center mb-10">
         <div className="w-16 h-16 rounded-full border border-gray-300 flex items-center justify-center bg-transparent">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -32,10 +32,10 @@ export default function AboutAwards() {
         </div>
       </div>
 
-      {/* Two Column Layout */}
+   
       <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start max-w-6xl mx-auto">
 
-        {/* Left — Image */}
+      
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,10 +52,10 @@ export default function AboutAwards() {
           </p>
         </motion.div>
 
-        {/* Right — Text + Awards */}
+        {/* Right */}
         <div className="flex-1">
 
-          {/* Heading */}
+         
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function AboutAwards() {
             ideas into reality, leading the way in creative innovation.
           </motion.h2>
 
-          {/* Awards List */}
+      
           <div className="flex flex-col">
             {awards.map((award, i) => (
               <motion.div

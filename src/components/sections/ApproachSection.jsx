@@ -5,7 +5,7 @@ import approImg from "../../assets/images/appro-img.webp";
 import winnerLogo from "../../assets/images/winner-logo.png";
 import winnerLogo2 from "../../assets/images/winer-logo2.png";
 
-/* ---------------- COUNTER HOOK ---------------- */
+
 function useCounter(end, duration = 1800) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -35,14 +35,14 @@ function useCounter(end, duration = 1800) {
   return { count, ref };
 }
 
-/* ---------------- PROGRESS BAR ---------------- */
+
 const ProgressBar = ({ label, value, highlight }) => (
   <div className="relative rounded-xl overflow-hidden">
     
-    {/* Background track */}
+ 
     <div className="absolute inset-0 bg-gray-100 rounded-xl" />
 
-    {/* Progress fill */}
+  
     <div
       className={`absolute inset-y-0 left-0 rounded-xl transition-all duration-700 ${
         highlight ? "bg-black" : "bg-gray-200"
@@ -71,7 +71,7 @@ const ProgressBar = ({ label, value, highlight }) => (
   </div>
 );
 
-/* ---------------- MAIN COMPONENT ---------------- */
+/* ---------------- Main component---------------- */
 const ApproachSection = () => {
   const { count, ref } = useCounter(25);
 
@@ -79,7 +79,7 @@ const ApproachSection = () => {
     <>
     <main className="bg-white">
 
-      {/* ================= APPROACH SECTION ================= */}
+      
      <section className="px-5 md:px-10 py-16 bg-[#f3f3f3]">
   <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
@@ -88,9 +88,9 @@ const ApproachSection = () => {
 
       <div className="relative w-24 h-24 flex items-center justify-center">
 
-        {/* Rotating Text */}
+      
 
-  {/* Circle Text */}
+ 
   <motion.svg
     viewBox="0 0 200 200"
     className="absolute w-full h-full"
@@ -136,11 +136,11 @@ const ApproachSection = () => {
   </div>
 </section>
 
-      {/* ================= EXPERIENCE SECTION ================= */}
+      {/* --- Experience Section --  */}
       <section className="px-5 md:px-10 py-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[250px_1fr_250px] gap-6">
 
-          {/* LEFT */}
+          {/* left */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -185,7 +185,7 @@ const ApproachSection = () => {
             </div>
           </motion.div>
 
-          {/* CENTER */}
+          {/* center*/}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -221,10 +221,10 @@ const ApproachSection = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* Right */}
              <div className="flex flex-col gap-6 h-[450px] md:h-[500px]">
 
-      {/* SOCIAL */}
+      {/* social */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -246,8 +246,8 @@ const ApproachSection = () => {
         </div>
       </motion.div>
 
-      {/* IMPRESSIONS */}
-  {/* IMPRESSIONS */}
+     
+ 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -281,14 +281,14 @@ const ApproachSection = () => {
       </section>
 
     </main>
-    {/* Scrolling Text */}
+   
 
 <div
   className="absolute left-0 top-0 h-full w-40 z-10 pointer-events-none"
   style={{ background: "linear-gradient(90deg, #f5f5f5 0%, rgba(245,245,245,0) 100%)" }}
 />
 
-{/* Right fade */}
+{/* Right */}
 <motion.div
   className="flex whitespace-nowrap"
   animate={{ x: ["0%", "-50%"] }}

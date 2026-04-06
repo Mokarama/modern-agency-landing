@@ -58,7 +58,7 @@ export default function OurTeam() {
               Meet with our team member
             </h2>
 
-            {/* Tabs */}
+            
             <div className="flex gap-6 border-b border-gray-200 mb-6">
               {tabs.map((tab) => (
                 <button
@@ -80,7 +80,7 @@ export default function OurTeam() {
               agency dedicated to helping brands stand out.
             </p>
 
-            {/* Join Button */}
+            
             <button className="flex items-center gap-3 group cursor-pointer bg-transparent border-none">
               <div className="w-9 h-9 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0 group-hover:bg-gray-700 transition-colors">
                 <span className="text-white text-lg leading-none">+</span>
@@ -90,7 +90,7 @@ export default function OurTeam() {
               </span>
             </button>
 
-            {/* Team Photo */}
+         
             <div className="mt-8 overflow-hidden rounded-2xl h-[200px]">
               <motion.img
                 src={ourTeam}
@@ -103,7 +103,7 @@ export default function OurTeam() {
 
           </div>
 
-          {/* Right — Member Grid */}
+          {/* Right*/}
           <div className="flex-1 flex flex-wrap gap-5">
             {members[activeTab].map((member, i) => (
               <motion.div
@@ -113,7 +113,7 @@ export default function OurTeam() {
                 transition={{ duration: 0.4, delay: i * 0.07 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-sm w-[300px] h-[453px]"
               >
-                {/* Image */}
+             
                 <div className="flex items-center justify-center pt-4">
                   <div className="w-[280px] h-[280px] overflow-hidden rounded-xl">
                     <motion.img
@@ -126,7 +126,7 @@ export default function OurTeam() {
                   </div>
                 </div>
 
-                {/* Info */}
+            
                 <div className="px-5 pt-4">
                   <p className="text-[20px] font-semibold text-black">
                     {member.name}
@@ -136,7 +136,7 @@ export default function OurTeam() {
                     {member.role}
                   </p>
 
-                  {/* Social Icons */}
+                
                   <div className="flex items-center gap-2">
                     {socialIcons.map(({ icon, key }) => (
                       <motion.button

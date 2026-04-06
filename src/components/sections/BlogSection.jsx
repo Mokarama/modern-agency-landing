@@ -108,7 +108,7 @@ export default function BlogSection() {
   return (
     <section className="bg-[#f0eeea] py-12 sm:py-16 md:py-16 px-4 sm:px-6 md:px-10 lg:px-12">
 
-      {/* Header */}
+     
       <div className="text-center mb-10 sm:mb-12 md:mb-12">
         <p className="text-[10px] sm:text-[11px] tracking-[0.2em] font-semibold text-gray-500 mb-2 sm:mb-3">
           INSIGHTS
@@ -118,7 +118,7 @@ export default function BlogSection() {
         </h2>
       </div>
 
-      {/* Grid */}
+     
       <div className="max-w-6xl mx-auto grid 
                       grid-cols-1 
                       sm:grid-cols-2 

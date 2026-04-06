@@ -19,7 +19,6 @@ export default function VideoReel() {
         onMouseLeave={() => setHovered(false)}
       >
 
-        {/* Image */}
         <motion.img
           src={reelImg}
           alt="reel cover"
@@ -28,7 +27,7 @@ export default function VideoReel() {
           transition={{ duration: 0.4, ease: "easeInOut" }}
         />
 
-        {/* Play Reel Button */}
+       
         <motion.button
           onClick={() => setOpen(true)}
           whileTap={{ scale: 0.97 }}
@@ -50,7 +49,7 @@ export default function VideoReel() {
           </span>
         </motion.button>
 
-        {/* Modal Overlay */}
+       
         <AnimatePresence>
           {open && (
             <motion.div

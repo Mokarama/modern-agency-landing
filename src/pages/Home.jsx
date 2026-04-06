@@ -22,6 +22,8 @@ const Home = () => {
           <AboutAwards/>
           <OurTeam/>
          <BlogSection/>
+
+
          <Footer/>
         </>
     );
